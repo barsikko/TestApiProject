@@ -21,3 +21,17 @@
  
 ### Результат представить ссылкой на репозиторий.
 * Важно, в репозиторий залить пустой каркас приложения, а затем с внесенными изменениями, чтобы можно было проследить diff.
+
+
+### ИНСТРУКЦИИ ПО УСТАНОВКЕ
+
+- git clone https://github.com/barsikko/TestApiProject.git
+- cd TestApiProject
+- docker-compose up -d --build
+- cp src/.env.example src/.env
+- cd src 
+- composer update
+- cd ../
+- docker-compose php php artisan migrate
+
+Script will start on 127.0.0.1:8088
