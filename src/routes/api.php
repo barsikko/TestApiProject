@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\UnitsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::apiResource('/units', UnitsController::class)
+					->only(['index', 'store', 'update', 'destroy', 'show']);
+
+Route::apiResource('/categories', CategoriesController::class)
+					->only(['store', 'destroy']);
+
