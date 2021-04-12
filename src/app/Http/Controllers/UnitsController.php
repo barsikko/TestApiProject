@@ -81,7 +81,7 @@ class UnitsController extends Controller
     public function store(UnitRequest $request)
     {
     	
-    	$categories = $request->categories;
+    	$categories = $request->categories ?? [];
 
 		if (count($categories) < 2 || count($categories) > 10)
     	{
@@ -124,7 +124,7 @@ class UnitsController extends Controller
 
         $unit->save();
 
-        return response()->json('Изменения успешно выполнены', Response::HTTP_CREATED);
+        return response()->json('Changes are made successefull', Response::HTTP_CREATED);
     }
 
     /**
@@ -140,7 +140,7 @@ class UnitsController extends Controller
          $unit->categories()->detach();
          $unit->delete();
 
-         return response()->json('Product was deleted successefully',  Response::HTTP_OK);
+         return response()->json('Product was deleted successefull',  Response::HTTP_OK);
 
     }
 }

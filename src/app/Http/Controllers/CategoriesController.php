@@ -19,7 +19,7 @@ class CategoriesController extends Controller
     {
         Category::create($request->all());
 
-        return response()->json('Ваши данные сохранены в базу', Response::HTTP_CREATED);
+        return response()->json('Data was added successefull', Response::HTTP_CREATED);
     }
 
     /**
@@ -33,12 +33,12 @@ class CategoriesController extends Controller
          $category = Category::findOrFail($id);
     	
     	if (count($category->units) !== 0){
-    		return response()->json('Невозможно удалить эту категорию',  Response::HTTP_UNPROCESSABLE_ENTITY);
+    		return response()->json('This category has products you can not delete it',  Response::HTTP_UNPROCESSABLE_ENTITY);
     	}
          
          $category->delete();
 
-         return response()->json('Запись была удалена',  Response::HTTP_OK);
+         return response()->json('Data was deleted successefull',  Response::HTTP_OK);
 
     }
 }
